@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework import status
 
 @api_view(['GET', 'POST'])
-def DrinksList(request):
+def DrinksList(request, format=False):
     if request.method == 'GET':
         # get all the drinks
         drinks = Drink.objects.all()
@@ -25,7 +25,7 @@ def DrinksList(request):
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def drinks_details(request, id):
+def drinks_details(request, id, format=False):
     try:
         drink = Drink.objects.get(pk=id)
     except Drink.DoesNotExist:

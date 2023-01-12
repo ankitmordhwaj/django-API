@@ -16,9 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from drinks import views
+from rest_framework.urlpatterns import format_suffix_patterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('drinks/', views.DrinksList),
     path('drinks/<int:id>', views.drinks_details),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
